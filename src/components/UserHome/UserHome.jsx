@@ -5,7 +5,7 @@ import axios from '../../axios'
 import { useDispatch ,useSelector } from 'react-redux';
 
 function UserHome() {
-  const imgURL='http://localhost:4000/upload_img/'
+  const imgURL=process.env.REACT_APP_SERVER_URL+'/upload_img/'
   axios.defaults.withCredentials = true;
 const navigate =useNavigate();
 const dispatch=useDispatch();
