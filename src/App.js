@@ -39,12 +39,13 @@ function App() {
         </Routes>
         }
         {
-        user.login===true &&
-        <Routes>
+          user.login===true &&
+          <Routes>
         <Route  element={<Navigate to={'/'}/>} path='/login'/>  
         <Route  element={<Navigate to={'/'}/>} path='/signup'/>  
         <Route  element={<UserHome/>} path='/'/>  
         <Route  element={<EditProfile />} path='/editProfile'/> 
+        <Route path='/auth/verify' element={<h1>verify</h1>}/>
         </Routes>
         }
        

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 // import Backdrop from '@mui/material/Backdrop';
 // import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate, useSearchParams } from "react-router-dom";
-import axios from "../axios";
+import axios from "../axios.js";
 import { useDispatch } from "react-redux";
 
 export default function UserGAuthCallback() {
