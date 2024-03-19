@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 // import Backdrop from '@mui/material/Backdrop';
 // import CircularProgress from '@mui/material/CircularProgress';
 import { useNavigate, useSearchParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../axios";
 import { useDispatch } from "react-redux";
 
 export default function UserGAuthCallback() {
@@ -14,7 +14,7 @@ export default function UserGAuthCallback() {
     (async function () {
       const token = searchParams.get("token");
       console.log("data: " + token);
-      const { data } = await axios.get(process.env.REACT_APP_SERVER_URL+"/auth/verify?token=" + token);
+      const { data } = await axios.get("/auth/verify?token=" + token);
       console.log("data: " + data);
       if (!data.err) {
         console.log('no error');

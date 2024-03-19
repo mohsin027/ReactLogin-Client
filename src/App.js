@@ -3,7 +3,9 @@ import Login from './components/Login/Login';
 import {BrowserRouter as Router,Routes,Route, Navigate} from 'react-router-dom'
 import Signup from './components/Signup/Signup';
 import UserHome from './components/UserHome/UserHome';
-import axios from '././axios';
+import axios from './axios';
+// import axios from 'axios';
+
 import { useEffect } from 'react';
 import {useDispatch,useSelector} from 'react-redux'
 import EditProfile from './components/EditProfile/EditProfile';
