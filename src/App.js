@@ -9,7 +9,6 @@ import {useDispatch,useSelector} from 'react-redux'
 import EditProfile from './components/EditProfile/EditProfile';
 
 
-import EditUser from './components/EditUser/EditUser';
 import UserGAuthCallback from './components/UserGAuthCallback';
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
         <Route  element={<Navigate to={'/login'} />} path='/editProfile'/> 
         <Route path='/auth/callback' element={<UserGAuthCallback/>}/>
         <Route path='/auth/verify' element={<h1>verify</h1>}/>
-        {/* <Route path='/' element={<h1>home</h1>}/> */}
 
         </Routes>
         }
