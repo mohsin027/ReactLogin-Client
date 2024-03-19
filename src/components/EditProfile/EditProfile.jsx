@@ -36,7 +36,7 @@ function EditProfile() {
       <label>Enter your name:
         <input type="text" value={name} onChange={(e)=>setname(e.target.value)} />
       </label><br/>
-      <label>Enter your name:
+      <label>choose image file:
         <input type="file" onChange={(e)=>setfile(e.target.files[0])} accept='image/*' />
       </label>
       <button type='submit'>submit</button>
