@@ -6,7 +6,7 @@ import UserHome from './components/UserHome/UserHome';
 import axios from './axios';
 // import axios from 'axios';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {useDispatch,useSelector} from 'react-redux'
 import EditProfile from './components/EditProfile/EditProfile';
 
@@ -14,22 +14,35 @@ import EditProfile from './components/EditProfile/EditProfile';
 import UserGAuthCallback from './components/UserGAuthCallback';
 
 function App() {
+  const [isLoading,setIslLoading]=useState(false)
+
  const {user,refresh}=useSelector((state)=>{
   return state
  });
  const dispatch =useDispatch();
   axios.defaults.withCredentials = true;
   useEffect(() => {
+    setIslLoading(true)
      axios.get('/checkAuth').then((response)=>{
       console.log(response);
       dispatch({type:'user',payload:{login: response.data.logged,details:response.data.details}});
+      setIslLoading(false)
      })   
   }, [refresh])
   return (
-    <div className="App">
+    <div className="App">{
+      isLoading &&
+      <div className="d-flex justify-content-center align-items-center ">
+        <div class="spinner-border" role="status">
+        </div>
+      </div>
+      }
+      {
+        isLoading===false &&
+      
       <Router>
         {
-        user.login===false &&
+          user.login===false &&
         <Routes>
         <Route  element={<Login/>} path='/login'/>  
         <Route  element={<Signup/>} path='/signup'/>  
@@ -52,6 +65,7 @@ function App() {
         }
        
       </Router>
+        }
     </div>
   );
 }
