@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./UserHome.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../axios";
 import { useDispatch, useSelector } from "react-redux";
 
 function UserHome() {
+  const [isLoading,setIsLoading]=useState(false)
   const imgURL = process.env.REACT_APP_SERVER_URL + "/upload_img/";
   axios.defaults.withCredentials = true;
   const navigate = useNavigate();
@@ -13,11 +14,13 @@ function UserHome() {
     return state.user;
   });
   const handleLogout = async () => {
+    setIsLoading(true)
     console.log("hello");
     await axios.get("/logout").then((response) => {
       dispatch({ type: "refresh" });
       console.log(response);
-
+      
+      setIsLoading(false)
       return navigate("/login");
     });
   };
@@ -47,7 +50,7 @@ function UserHome() {
               <div className="top_link">
                 {" "}
                 <Link onClick={handleLogout}>
-                  <button>Logout</button>{" "}
+                  <button disabled={isLoading}>Logout</button>{" "}
                 </Link>
               </div>
             </div>
