@@ -4,6 +4,8 @@ import axios from "../../axios";
 import { BASE_URL } from "../../Constant/constant";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { FcGoogle } from "react-icons/fc";
+
 
 function Login() {
   const dispatch = useDispatch();
@@ -80,13 +82,14 @@ function Login() {
           </form>
           <div>
             <button
-              className="mb-4 w-100 d-flex justify-content-center"
+              className="mb-3 w-100 d-flex justify-content-center mt-2 btn btn-light p-2"
               onClick={handleGoogleLogin}
               size="lg"
-              style={{ backgroundColor: "white", color: "black" }}
+              style={{ backgroundColor: "white", color: "black",fontSize: "17px"  }}
             >
+
               {/* <MDBIcon fab icon="google-g" className="mx-2" /> */}
-              {/* <FcGoogle className="m-1 me-2" /> */}
+              <FcGoogle className="m-1 me-2" />
               Continue with Google
             </button>
           </div>
@@ -98,7 +101,7 @@ function Login() {
             }}
             to={"/signup"}
           >
-            Signup ?
+            Don't have account? Create Account.
           </Link>
         </div>
       </div>

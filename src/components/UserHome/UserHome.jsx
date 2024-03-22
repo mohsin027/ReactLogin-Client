@@ -33,9 +33,7 @@ function UserHome() {
               <img
                 src={`${
                   user.details.image !== undefined
-                    // ? imgURL + user.details.image.filename
                     ? user.details.image.url || imgURL + user.details.image.filename
-                    // : user.details.image.url
                     : "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=826&t=st=1680295524~exp=1680296124~hmac=02e23136e23578ef52071ce6ce8be6ecd2a32c6bef946fcacd4e6e788ed33360"
                 }`}
                 style={{ objectFit: "cover" }}
@@ -46,16 +44,16 @@ function UserHome() {
               <h3>{user.details.name}</h3>
               <p>{user.details.email}</p>
 
-              <Link to={"/editProfile"}>Edit Profile Picture</Link>
+              <Link to={"/editProfile"}>edit Profile Picture</Link>
               <div className="top_link">
                 {" "}
                 <Link onClick={handleLogout}>
-                  <button disabled={isLoading}>Logout</button>{" "}
+                  <button className="btn btn-dark p-2" disabled={isLoading}>Logout</button>{" "}
                 </Link>
               </div>
             </div>
           </div>
-          <div className="right">
+          <div className="right d-flex justify-content-center">
             <h1>Welcome</h1>
             <div className="right-text"></div>
           </div>
